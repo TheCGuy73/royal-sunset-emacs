@@ -26,4 +26,6 @@
 
 (provide-theme 'royal-sunset)
 
+(provide 'royal-sunset-theme)
+
 ;;; royal-sunset-theme.el ends here
