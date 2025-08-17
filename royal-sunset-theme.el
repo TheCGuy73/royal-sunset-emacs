@@ -18,11 +18,13 @@
    `(font-lock-variable-name-face ((,class (:foreground ,royal-sunset-white))))))
 
 ;;;###autoload
-(when (and (boundp 'custom-theme-load-path)
-           (not (member (file-name-directory (or load-file-name (buffer-file-name)))
-                        custom-theme-load-path)))
-  (add-to-list 'custom-theme-load-path
-               (file-name-directory (or load-file-name (buffer-file-name)))))
+(let ((file-path (or load-file-name (buffer-file-name))))
+  (when (and file-path
+             (boundp 'custom-theme-load-path)
+             (not (member (file-name-directory file-path)
+                          custom-theme-load-path)))
+    (add-to-list 'custom-theme-load-path
+                 (file-name-directory file-path))))
 
 (provide-theme 'royal-sunset)
 
